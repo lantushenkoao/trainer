@@ -107,7 +107,7 @@ function api<T>(url: string, method: 'GET' | 'POST', data?: object):Request<T> {
             resolve(response.data as T)
         ).catch(({response}) => {
             if (response) {
-                if (response.status === 401) {
+                if (response.status === 401 || response.status == 302) {
                     clearSession();
                 }
                 response.data && showErrorNotification(response.data);
