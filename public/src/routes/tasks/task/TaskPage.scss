@@ -1,0 +1,110 @@
+@import '../../../styles/variables';
+
+.container {
+    min-width: 600px;
+    max-width: 1200px;
+}
+
+.header {
+    grid-column: 1 / span 2;
+    font-weight: bold;
+    border-bottom: 2px solid $tableBorderColor;
+    padding-bottom: 10px;
+}
+
+.description-form {
+    display: grid;
+    grid-template-columns: $formLabelWidth auto;
+    grid-column-gap: $formColumnGap;
+    grid-row-gap: $formRowGap;
+    align-items: center;
+    margin-bottom: $contentPadding;
+
+    > label {
+        text-align: right;
+    }
+
+    &__label-description {
+        display: flex;
+        justify-content: flex-end;
+        align-self: flex-start;
+        padding-top: 6px;
+    }
+
+    &__description {
+        position: relative;
+
+        &__hidden-input {
+            width: 100%;
+            opacity: 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    &__complexity-select,
+    &__evaluation-type {
+        width: fit-content;
+    }
+}
+
+$solutionHeight: 500px;
+.solution-container {
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: $formLabelWidth auto;
+    grid-column-gap: $formColumnGap;
+    grid-row-gap: $formRowGap;
+    align-items: center;
+
+    .header {
+        grid-column: 1 / span 2;
+    }
+
+    &__palette-container {
+        align-self: flex-start;
+        display: flex;
+        flex-flow: column;
+        flex-grow: 1;
+        height: $solutionHeight;
+    }
+
+    &__editor-container {
+        display: flex;
+        height: $solutionHeight;
+        min-width: 0;
+    }
+
+    &__bottom-menu {
+        display: flex;
+        align-content: center;
+
+        &__mark-container {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+    }
+
+    &__mark {
+        display: flex;
+        justify-content: flex-end;
+        align-self: center;
+    }
+
+    &__delete {
+        display: flex;
+        justify-self: flex-end;
+        width: fit-content;
+        grid-column: 2;
+    }
+}
+
+.buttons-container {
+    text-align: center;
+
+     > * + * {
+         margin-left: 20px;
+     }
+}

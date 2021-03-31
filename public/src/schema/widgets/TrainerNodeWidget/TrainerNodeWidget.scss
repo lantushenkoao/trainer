@@ -1,0 +1,142 @@
+@import '../../../styles/variables';
+
+.node {
+    min-width: 50px;
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    position: relative;
+    box-sizing: border-box;
+
+    @mixin position-at-center () {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__label {
+        z-index: 4;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        word-break: break-word;
+        text-align: center;
+
+        &:hover[contenteditable=false] {
+            text-shadow: lightgrey 3px 3px;
+        }
+
+        &[contenteditable=true] {
+            cursor: text;
+        }
+
+        &--empty::before {
+            content: '...';
+        }
+    }
+
+    &__port-container {
+        position: absolute;
+        @include position-at-center;
+        z-index: 6;
+
+        &--editing {
+            z-index: 3;
+        }
+    }
+
+    &__shape {
+        fill: $schemaNodeBackgroundColor;
+        stroke: $schemaNodeBorderColor;
+        stroke-width: 1px;
+
+        &-container {
+            position: absolute;
+            @include position-at-center;
+            width: 100%;
+            height: 100%;
+        }
+
+        &-box {
+
+        }
+    }
+
+    &__box {
+        $resizeUiColor: rgba(0, 0, 250, .6);
+
+        fill: none;
+        stroke-width: 2px;
+        stroke: lightgreen;
+        stroke-dasharray: 10, 8, 10;
+
+        &-container {
+            position: absolute;
+            @include position-at-center;
+            width: calc(100% + #{8px});
+            height: calc(100% + #{8px});
+            z-index: 2;
+        }
+
+        &-corner {
+            fill: $resizeUiColor;
+            stroke: none;
+            stroke-width: 3px;
+
+            &:hover {
+                stroke: #ff388b;
+                cursor: se-resize;
+            }
+        }
+    }
+
+    &--SQUARE_RECT {
+        padding: 20px;
+    }
+
+    &--RHOMBUS {
+        padding: 18%;
+    }
+
+    &--PARALLELOGRAM {
+        padding: 11px;
+    }
+
+    &--DOCUMENT {
+        padding: 10px;
+
+        .node__label {
+            top: 40%;
+        }
+    }
+
+    &--ROUND {
+        border-radius: 50%;
+        padding: 5%;
+    }
+
+    &--ROUND_RECT {
+        border-radius: 10%;
+        min-width: 75px;
+    }
+
+    &--TRIANGLE {
+        padding: 10% 45% 10% 5%;
+    }
+
+    &--PENTAGON {
+        padding: 10%;
+    }
+
+    &--CARD {
+        padding: 10%;
+    }
+
+    &--TRAPEZOID {
+        padding: 5% 18%;
+    }
+}

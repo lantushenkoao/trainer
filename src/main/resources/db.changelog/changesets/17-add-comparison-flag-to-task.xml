@@ -1,0 +1,13 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="tasks-change" author="azuy">
+        <addColumn tableName="tasks">
+            <column name="should_compare_position_on_evaluation" type="tinyint(1)" defaultValue="0" afterColumn="is_deleted"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

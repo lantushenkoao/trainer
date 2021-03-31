@@ -1,0 +1,36 @@
+@import "../../styles/variables";
+
+.container{
+  background-color: #737373;
+  height: calc(100% - 104px);
+  width: 100%;
+  position: fixed;
+  display: table;
+
+  &__helper{
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  &__form{
+    margin: 0 auto;
+    background-color: $mainBackground;
+    box-shadow: 3px 3px #555555;
+    width: fit-content;
+    padding: 50px;
+    display: grid;
+    grid-row-gap: 25px;
+    grid-column-gap: 20px;
+
+    &__submit-button {
+      grid-column: 2;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &__label {
+      justify-self: center;
+      align-self: center;
+    }
+  }
+}

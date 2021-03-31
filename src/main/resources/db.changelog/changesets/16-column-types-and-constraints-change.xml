@@ -1,0 +1,66 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="user-name-change" author="kgadyrka">
+        <addNotNullConstraint tableName="users" columnName="name" columnDataType="varchar(100)"/>
+    </changeSet>
+
+    <changeSet id="user-username-change" author="kgadyrka">
+        <addNotNullConstraint tableName="users" columnName="username" columnDataType="varchar(20)"/>
+    </changeSet>
+
+    <changeSet id="user-email-change" author="kgadyrka">
+        <modifyDataType tableName="users" columnName="email" newDataType="varchar(50)"/>
+    </changeSet>
+
+    <changeSet id="user-is-deleted-change" author="kgadyrka">
+        <addNotNullConstraint tableName="users" columnName="is_deleted" columnDataType="tinyint" defaultNullValue="0"/>
+        <addDefaultValue tableName="users" columnName="is_deleted" defaultValue="0"/>
+    </changeSet>
+
+
+    <changeSet id="topic-name-change" author="kgadyrka">
+        <addNotNullConstraint tableName="topics" columnName="name" columnDataType="varchar(100)"/>
+        <dropUniqueConstraint tableName="topics" constraintName="name"/>
+    </changeSet>
+
+    <changeSet id="topic-description-change" author="kgadyrka">
+        <addNotNullConstraint tableName="topics" columnName="description" columnDataType="varchar(500)"/>
+    </changeSet>
+
+    <changeSet id="topic-is-deleted-change" author="kgadyrka">
+        <addNotNullConstraint tableName="topics" columnName="is_deleted" columnDataType="tinyint" defaultNullValue="0"/>
+        <addDefaultValue tableName="topics" columnName="is_deleted" defaultValue="0"/>
+    </changeSet>
+
+
+    <changeSet id="task-name-change" author="kgadyrka">
+        <addNotNullConstraint tableName="tasks" columnName="name" columnDataType="varchar(100)"/>
+    </changeSet>
+
+    <changeSet id="task-description-change" author="kgadyrka">
+        <addNotNullConstraint tableName="tasks" columnName="description" columnDataType="text"/>
+    </changeSet>
+
+    <changeSet id="task-complexity-change" author="kgadyrka">
+        <addNotNullConstraint tableName="tasks" columnName="complexity" columnDataType="tinyint" defaultNullValue="1"/>
+    </changeSet>
+
+    <changeSet id="task-is-deleted-change" author="kgadyrka">
+        <addNotNullConstraint tableName="tasks" columnName="is_deleted" columnDataType="tinyint" defaultNullValue="0"/>
+        <addDefaultValue tableName="tasks" columnName="is_deleted" defaultValue="0"/>
+    </changeSet>
+
+
+    <changeSet id="solution-mark-type-change" author="kgadyrka">
+        <addNotNullConstraint tableName="solutions" columnName="mark" columnDataType="tinyint" defaultNullValue="1"/>
+    </changeSet>
+
+    <changeSet id="solution-drop-index" author="kgadyrka">
+        <dropColumn tableName="solutions" columnName="index"/>
+    </changeSet>
+
+</databaseChangeLog>

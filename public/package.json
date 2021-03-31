@@ -1,0 +1,128 @@
+{
+  "name": "js",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/core": "^7.0.1",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@epicfaace/mxgraph": "^3.9.10",
+    "@fortawesome/fontawesome-svg-core": "^1.2.4",
+    "@fortawesome/free-solid-svg-icons": "^5.3.1",
+    "@fortawesome/react-fontawesome": "^0.1.3",
+    "@tinymce/tinymce-react": "^2.2.6",
+    "@types/jest": "^23.3.2",
+    "@types/lodash": "^4.14.116",
+    "@types/node": "^10.9.4",
+    "@types/react": "^16.4.13",
+    "@types/react-breadcrumbs-dynamic": "^1.0.2",
+    "@types/react-css-modules": "^4.6.2",
+    "@types/react-dom": "^16.0.7",
+    "@types/react-router-dom": "^4.3.0",
+    "@types/tinymce": "^4.5.16",
+    "axios": "^0.18.0",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-react-css-modules": "^3.4.2",
+    "cross-env": "^5.2.0",
+    "postcss-nested": "^4.1.0",
+    "postcss-scss": "^2.0.0",
+    "properties-reader": "0.0.16",
+    "react": "^16.5.0",
+    "react-breadcrumbs-dynamic": "^1.1.1",
+    "react-dom": "^16.5.0",
+    "react-router-dom": "^4.3.1",
+    "react-toastify": "^4.3.1",
+    "sass-resources-loader": "^1.3.3",
+    "storm-react-diagrams": "^5.2.1",
+    "tinymce": "^4.8.3",
+    "tinymce-i18n": "^18.8.8"
+  },
+  "devDependencies": {
+    "app-root-path": "^2.1.0",
+    "autoprefixer": "^9.1.3",
+    "case-sensitive-paths-webpack-plugin": "2.1.2",
+    "chalk": "^2.4.1",
+    "cli-highlight": "^2.0.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "0.28.11",
+    "dotenv": "^6.0.0",
+    "extract-text-webpack-plugin": "3.0.2",
+    "file-loader": "^2.0.0",
+    "fs-extra": "^7.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.5.0",
+    "node-sass": "4.9.3",
+    "object-assign": "4.1.1",
+    "postcss-flexbugs-fixes": "4.1.0",
+    "postcss-loader": "3.0.0",
+    "promise": "^8.0.1",
+    "react-dev-utils": "^5.0.2",
+    "react-error-overlay": "^4.0.1",
+    "sass-loader": "^7.1.0",
+    "script-loader": "^0.7.2",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^0.22.1",
+    "sw-precache-webpack-plugin": "0.11.5",
+    "ts-loader": "3.5.0",
+    "tslint": "^5.11.0",
+    "tslint-loader": "^3.6.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "2.9.2",
+    "typings-for-css-modules-loader": "^1.7.0",
+    "url-loader": "0.6.2",
+    "webpack": "3.12.0",
+    "webpack-dev-server": "2.11.1",
+    "webpack-manifest-plugin": "2.0.3",
+    "whatwg-fetch": "2.0.4",
+    "write-file-webpack-plugin": "^4.4.1"
+  },
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "build-dev": "cross-env NODE_ENV=development webpack --config config/webpack.config.dev.js",
+    "build-prod": "cross-env NODE_ENV=production webpack --config config/webpack.config.prod.js",
+    "test": "node scripts/test.js --env=jsdom"
+  },
+  "proxy": "http://localhost:8080",
+  "jest": {
+    "mapCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.ts?(x)",
+      "<rootDir>/src/**/?(*.)(spec|test).ts?(x)"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^.+\\.tsx?$": "<rootDir>/config/jest/typescriptTransform.js",
+      "^(?!.*\\.(css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    }
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  }
+}

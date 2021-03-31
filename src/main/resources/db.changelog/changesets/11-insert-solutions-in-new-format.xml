@@ -1,0 +1,58 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="insert-solutions-in-new-format" author="azuy">
+        <update tableName="solutions">
+            <column name="index" value="1"/>
+            <column name="data">
+                <![CDATA[
+                {"id":"2a706f8b-6a09-4114-a6ff-e958f724bd82","offsetX":0,"offsetY":0,"zoom":100,"gridSize":0,"links":[{"id":"276fd815-707a-4138-a493-2ff52d5cb1a0","type":"trainer","selected":false,"source":"38751630-83da-4ab8-9604-cc86442803b6","sourcePort":"77fdf47c-4b43-4925-abd4-26dea065cefa","target":"1b094bb2-4727-4bd5-aa05-88193a88f252","targetPort":"27b5b622-9797-435f-8486-d616b12f7c91","points":[{"id":"adfd5a98-6ae5-4c4c-964f-aeaff660d04e","selected":false,"x":491.98858642578125,"y":183.99148559570312},{"id":"ffc0cdf3-b7d5-4ca5-849d-984c955435d4","selected":true,"x":492.99713134765625,"y":398.991455078125}],"extras":{},"labels":[],"width":3,"color":"rgba(255,255,255,0.5)","curvyness":50,"line":"SOLID","directionality":"DIRECTED"},{"id":"35a19454-215e-409a-9521-6f718e23c911","type":"trainer","selected":false,"source":"077b9264-15d6-4b79-937f-199cd668f7e2","sourcePort":"2e2e712f-a5d7-4000-bdd1-1bd9fe43b8f2","target":"1b094bb2-4727-4bd5-aa05-88193a88f252","targetPort":"27b5b622-9797-435f-8486-d616b12f7c91","points":[{"id":"dd1427e6-7305-4691-b3f2-686338af2ee1","selected":false,"x":105.32672119140625,"y":97.51419067382812},{"id":"0b607eff-72c8-4137-8023-1f618552d9d0","selected":true,"x":492.99713134765625,"y":398.991455078125}],"extras":{},"labels":[],"width":3,"color":"rgba(255,255,255,0.5)","curvyness":50,"line":"SOLID","directionality":"DIRECTED"}],"nodes":[{"id":"1b094bb2-4727-4bd5-aa05-88193a88f252","type":"trainer","selected":false,"x":443,"y":349,"extras":{},"ports":[{"id":"27b5b622-9797-435f-8486-d616b12f7c91","type":"trainer","selected":false,"name":"port","parentNode":"1b094bb2-4727-4bd5-aa05-88193a88f252","links":["276fd815-707a-4138-a493-2ff52d5cb1a0","35a19454-215e-409a-9521-6f718e23c911"]}],"shape":"SQUARE_RECT","text":"Квадрат"},{"id":"38751630-83da-4ab8-9604-cc86442803b6","type":"trainer","selected":true,"x":442,"y":134,"extras":{},"ports":[{"id":"77fdf47c-4b43-4925-abd4-26dea065cefa","type":"trainer","selected":false,"name":"port","parentNode":"38751630-83da-4ab8-9604-cc86442803b6","links":["276fd815-707a-4138-a493-2ff52d5cb1a0"]}],"shape":"ROUND","text":"Круг"},{"id":"077b9264-15d6-4b79-937f-199cd668f7e2","type":"trainer","selected":false,"x":55.32672119140625,"y":47.5198974609375,"extras":{},"ports":[{"id":"2e2e712f-a5d7-4000-bdd1-1bd9fe43b8f2","type":"trainer","selected":false,"name":"port","parentNode":"077b9264-15d6-4b79-937f-199cd668f7e2","links":["35a19454-215e-409a-9521-6f718e23c911"]}],"shape":"ROUND","text":"&nbsp;"}]}
+                ]]>
+            </column>
+            <where>id=1</where>
+        </update>
+        <update tableName="solutions">
+            <column name="index" value="2"/>
+            <column name="data">
+                <![CDATA[
+                {"id":"cdb030f8-0d67-4969-a134-65f2424d21e5","offsetX":0,"offsetY":0,"zoom":100,"gridSize":0,"links":[{"id":"b4c9161b-4c6b-4ade-8169-f4174f13170b","type":"trainer","selected":false,"source":"19c0be55-3be5-4b0f-99f4-655ef37faec2","sourcePort":"6e833b77-28f9-44df-b5b0-75afe16ab99a","target":"1c99c69d-405c-41dd-ad38-65576532f6fd","targetPort":"a9aa30c0-bf97-4dbd-900b-b1a81b716a96","points":[{"id":"f5f7b16f-dd6f-4fb5-b27d-0c33571215bd","selected":false,"x":204.31817626953125,"y":324.4317626953125},{"id":"8cc6ca00-51d5-4cfd-a883-9058d6cb46f0","selected":true,"x":523.3237915039062,"y":325.4261474609375}],"extras":{},"labels":[],"width":3,"color":"rgba(255,255,255,0.5)","curvyness":50,"line":"SOLID","directionality":"DIRECTED"}],"nodes":[{"id":"19c0be55-3be5-4b0f-99f4-655ef37faec2","type":"trainer","selected":false,"x":154.32672119140625,"y":274.4346618652344,"extras":{},"ports":[{"id":"6e833b77-28f9-44df-b5b0-75afe16ab99a","type":"trainer","selected":false,"name":"port","parentNode":"19c0be55-3be5-4b0f-99f4-655ef37faec2","links":["b4c9161b-4c6b-4ade-8169-f4174f13170b"]}],"shape":"SQUARE_RECT","text":"Начало"},{"id":"1c99c69d-405c-41dd-ad38-65576532f6fd","type":"trainer","selected":false,"x":473.32672119140625,"y":275.4346618652344,"extras":{},"ports":[{"id":"a9aa30c0-bf97-4dbd-900b-b1a81b716a96","type":"trainer","selected":false,"name":"port","parentNode":"1c99c69d-405c-41dd-ad38-65576532f6fd","links":["b4c9161b-4c6b-4ade-8169-f4174f13170b"]}],"shape":"SQUARE_RECT","text":"Конец"}]}
+                ]]>
+            </column>
+            <where>id=2</where>
+        </update>
+        <update tableName="solutions">
+            <column name="index" value="3"/>
+            <column name="data">
+                <![CDATA[
+                {"id":"895f9dd6-f000-4524-ab04-1b09b0e843cb","offsetX":0,"offsetY":0,"zoom":100,"gridSize":0,"links":[{"id":"deaeb63f-a184-47d9-b839-e1251c7a94d4","type":"trainer","selected":false,"source":"dfcf5cfe-7d7e-47f8-8e26-fc345539598d","sourcePort":"58904ea0-3edd-402c-9d01-b9f0afd0bc30","target":"bdad1bbc-f2bc-48be-80a0-20bddb1d21af","targetPort":"0080336a-5483-4c6c-9462-090c0e362ce9","points":[{"id":"580254f4-f7b5-4690-8b2b-2c3d54d73407","selected":false,"x":101.32098388671875,"y":78.167724609375},{"id":"60d53a16-e718-4fc6-8a4f-26c3b1b8404b","selected":true,"x":615.3267211914062,"y":503.167724609375}],"extras":{},"labels":[],"width":3,"color":"rgba(255,255,255,0.5)","curvyness":50,"line":"SOLID","directionality":"DIRECTED"}],"nodes":[{"id":"dfcf5cfe-7d7e-47f8-8e26-fc345539598d","type":"trainer","selected":false,"x":51.32672119140625,"y":28.167617797851562,"extras":{},"ports":[{"id":"58904ea0-3edd-402c-9d01-b9f0afd0bc30","type":"trainer","selected":false,"name":"port","parentNode":"dfcf5cfe-7d7e-47f8-8e26-fc345539598d","links":["deaeb63f-a184-47d9-b839-e1251c7a94d4"]}],"shape":"SQUARE_RECT","text":""},{"id":"bdad1bbc-f2bc-48be-80a0-20bddb1d21af","type":"trainer","selected":false,"x":565.3267211914062,"y":453.16761779785156,"extras":{},"ports":[{"id":"0080336a-5483-4c6c-9462-090c0e362ce9","type":"trainer","selected":false,"name":"port","parentNode":"bdad1bbc-f2bc-48be-80a0-20bddb1d21af","links":["deaeb63f-a184-47d9-b839-e1251c7a94d4"]}],"shape":"SQUARE_RECT","text":""}]}
+                ]]>
+            </column>
+            <where>id=3</where>
+        </update>
+        <update tableName="solutions">
+            <column name="index" value="1"/>
+            <column name="data">
+                <![CDATA[
+                {"id":"08b63c81-2872-48c9-bb40-48bbf114a93f","offsetX":0,"offsetY":0,"zoom":100,"gridSize":0,"links":[{"id":"3a766dbf-f207-49f8-9c72-1e9e03cd788d","type":"trainer","selected":false,"source":"42f33087-5e5c-497c-bee1-a7ebc37acb92","sourcePort":"50073fe2-8a0c-4123-a124-33118e38e69e","target":"dff90eea-43ee-4755-bdce-bc8078b4b82b","targetPort":"ce19fb1b-d3b4-4e4b-923c-9f9a2b6e796e","points":[{"id":"a8c20e7f-5676-4f50-8150-140d2d4bf162","selected":false,"x":121.32098388671875,"y":225.15623474121094},{"id":"00861740-649c-4dd0-a011-fb9c1aa98b62","selected":true,"x":598.3237915039062,"y":225.15623474121094}],"extras":{},"labels":[],"width":3,"color":"rgba(255,255,255,0.5)","curvyness":50,"line":"SOLID","directionality":"DIRECTED"}],"nodes":[{"id":"42f33087-5e5c-497c-bee1-a7ebc37acb92","type":"trainer","selected":false,"x":71.32672119140625,"y":175.15626525878906,"extras":{},"ports":[{"id":"50073fe2-8a0c-4123-a124-33118e38e69e","type":"trainer","selected":false,"name":"port","parentNode":"42f33087-5e5c-497c-bee1-a7ebc37acb92","links":["3a766dbf-f207-49f8-9c72-1e9e03cd788d"]}],"shape":"SQUARE_RECT","text":"Начало"},{"id":"dff90eea-43ee-4755-bdce-bc8078b4b82b","type":"trainer","selected":true,"x":548.3267211914062,"y":175.15626525878906,"extras":{},"ports":[{"id":"ce19fb1b-d3b4-4e4b-923c-9f9a2b6e796e","type":"trainer","selected":false,"name":"port","parentNode":"dff90eea-43ee-4755-bdce-bc8078b4b82b","links":["3a766dbf-f207-49f8-9c72-1e9e03cd788d"]}],"shape":"SQUARE_RECT","text":"Конец"}]}
+                ]]>
+            </column>
+            <where>id=4</where>
+        </update>
+        <insert tableName="solutions">
+            <column name="id">5</column>
+            <column name="task_id">1</column>
+            <column name="student_id">3</column>
+            <column name="mark">3</column>
+            <column name="index" value="1"/>
+            <column name="data">
+                <![CDATA[
+                {"id":"671c67d9-cdd8-4408-95e7-fb99daad0ae2","offsetX":0,"offsetY":0,"zoom":100,"gridSize":0,"links":[],"nodes":[{"id":"331d24a6-348d-46bb-a765-88245c34433c","type":"trainer","selected":false,"x":473,"y":201.00852966308594,"extras":{},"ports":[{"id":"5149fdcd-be58-4d17-986a-e4fa1029aaf6","type":"trainer","selected":false,"name":"port","parentNode":"331d24a6-348d-46bb-a765-88245c34433c","links":[]}],"shape":"SQUARE_RECT","text":""},{"id":"9c33dbe7-1045-4b43-85fd-46f28b348eb9","type":"trainer","selected":false,"x":230,"y":134.00852966308594,"extras":{},"ports":[{"id":"363d363a-13ab-4829-ae2f-f356e0982226","type":"trainer","selected":false,"name":"port","parentNode":"9c33dbe7-1045-4b43-85fd-46f28b348eb9","links":[]}],"shape":"ROUND","text":""}]}
+                ]]>
+            </column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

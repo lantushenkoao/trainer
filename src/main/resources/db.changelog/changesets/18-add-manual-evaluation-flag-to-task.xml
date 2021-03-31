@@ -1,0 +1,21 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="add-manual-evaluation-flag-to-task" author="kgadyrka">
+        <addColumn tableName="tasks">
+            <column name="manual_evaluation" type="tinyint(1)" defaultValue="1" afterColumn="should_compare_position_on_evaluation"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="set-manual-evaluation-to-existing-tasks" author="kgadyrka">
+        <update tableName="tasks">
+            <column name="manual_evaluation">
+                0
+            </column>
+        </update>
+    </changeSet>
+
+</databaseChangeLog>

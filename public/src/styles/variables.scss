@@ -1,0 +1,60 @@
+$viewButtonColor: #808080;
+$tableBorderColor: #808080;
+$light-gray: #ccc;
+$leftBarColor: #e6e6e6;
+$inputDisabledColor: #e6e6e6;
+$inputBorderColor: #ccc;
+$dark-white: #f2f2f2;
+$newButtonColor: #009245;
+$buttonColor: #255aaa;
+$deleteButtonColor: #ed1c24;
+$darkenValueButtonHover: 10;
+$textColor: #3c3c3c;
+$mainBackground: #f2f2f2;
+$schemaGridLineColor: #f4f4f4;
+$schemaGridBackgroundColor: #fff;
+$schemaEditorPaletteBackgroundColor: #f3f3f3;
+$schemaNodeBorderColor: #000;
+$schemaNodeBackgroundColor: #fff;
+$schemaLinkColor: $schemaNodeBorderColor;
+$schemaArrowColor: $schemaNodeBorderColor;
+$dark-white: #f2f2f2;
+
+$contentPadding: 40px;
+$table-wrapper-width: 90%;
+$left-bar-width: 320px;
+$header-height: 104px;
+$scrollbar-wrapper-height: calc(100% - #{$header-height} - #{$contentPadding});
+$buttonHeight: 56px;
+$tableRowGap: 16px;
+$tableColumnGap: 50px;
+$scrollbarWrapperPaddingRight: 50px;
+$scrollbarWidth: 8px;
+
+$formColumnGap: 32px;
+$formRowGap: 32px;
+$formLabelWidth: 180px;
+$formInputWidth: 450px;
+
+%scrollBarStyling {
+    &::-webkit-scrollbar {
+        width: $scrollbarWidth;
+        height: $scrollbarWidth;
+    }
+
+    &::-webkit-scrollbar-corner {
+        background-color: $mainBackground;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #b3b3b3;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $buttonColor;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: $viewButtonColor;
+    }
+}

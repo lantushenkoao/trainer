@@ -1,0 +1,33 @@
+@import '../../../styles/variables';
+
+.editor {
+    flex-grow: 1;
+    overflow: scroll;
+
+    &__container {
+        height: 2000px;
+        width: 2000px;
+        display: flex;
+
+        $lineColor: $schemaGridLineColor;
+        $lineThickness: 2px;
+        $gridCellSize: 40px;
+
+        background-color: $schemaGridBackgroundColor;
+        /* -- disable grid
+        background-image:
+                linear-gradient($lineColor $lineThickness, transparent $lineThickness),
+                linear-gradient(90deg, $lineColor $lineThickness, transparent $lineThickness);
+        background-size:
+                $gridCellSize $gridCellSize,
+                $gridCellSize $gridCellSize;
+        background-position: -#{$lineThickness} -#{$lineThickness}, -#{$lineThickness} -#{$lineThickness};
+        */
+    }
+
+    :global {
+        .srd-diagram {
+            cursor: default;
+        }
+    }
+}

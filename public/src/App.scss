@@ -1,0 +1,12 @@
+@import "styles/variables";
+
+.layout {
+    height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+
+}
+
+.content {
+    height: calc(100% - #{$header-height});
+}

@@ -1,0 +1,90 @@
+@import '../../styles/variables';
+
+h1 {
+    font-size: 23px;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.content {
+    height: 100%;
+    position: absolute;
+}
+
+.container {
+    margin-left:50px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 45% 450px;
+    grid-column-gap: 45px;
+
+    &__list {
+        color: $buttonColor;
+        padding-left:60px;
+
+        &__element {
+            padding: 10px;
+
+            &__link {
+                padding-left:15px;
+                color: $buttonColor;
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__content {
+        &__grid {
+            display: grid;
+            grid-template-columns: 200px auto;
+            grid-column-gap: 25px;
+            grid-row-gap: 50px;
+
+            &__image {
+                justify-self: center;
+                align-self: center;
+                width: 100%;
+            }
+
+            &__description {
+                text-align: justify;
+
+                &__header {
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+            }
+
+            &__text {
+                grid-column: 1 / span 2;
+                text-align: justify;
+            }
+
+            &__back {
+                justify-self: start;
+            }
+
+            &__next {
+                justify-self: end;
+            }
+        }
+    }
+
+    &__sidebar {
+        box-sizing: border-box;
+        background-color: $leftBarColor;
+        padding: $contentPadding $contentPadding 0 $contentPadding;
+        left:50%;
+        height: 100%;
+        display: block;
+
+        &__image {
+            padding-top: 35px;
+            padding-bottom: 35px;
+        }
+
+        &__description {
+            text-align: justify;
+        }
+    }
+}

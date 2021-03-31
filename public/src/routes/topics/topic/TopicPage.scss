@@ -1,0 +1,34 @@
+@import '../../../styles/variables';
+
+.topic-form {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: $formLabelWidth $formInputWidth;
+    grid-column-gap: $formColumnGap;
+    grid-row-gap: $formRowGap;
+    align-items: center;
+
+    > label {
+        text-align: right;
+    }
+
+    &__label-description {
+        display: flex;
+        justify-content: flex-end;
+        align-self: flex-start;
+        padding-top: 10px;
+    }
+
+    &__description-input {
+        min-height: 250px;
+        resize: vertical;
+    }
+
+    &__buttons-container {
+        grid-column: 2;
+
+        > * {
+            float: right;
+        }
+    }
+}

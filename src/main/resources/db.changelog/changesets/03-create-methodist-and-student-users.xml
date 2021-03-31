@@ -1,0 +1,32 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="create-methodist-and-student-users" author="kgadyrka">
+        <insert tableName="users">
+            <column name="id">2</column>
+            <column name="name">Сергей Сергеевич Сергеев</column>
+            <column name="email">methodist@test.test</column>
+            <column name="username">methodist</column>
+            <column name="password">$2a$10$gTZRllQZmqV43tCUMUo/V.EptmDOjwEGcagD/ZasdGj0pqLv95FUK</column>
+        </insert>
+        <insert tableName="users">
+            <column name="id">3</column>
+            <column name="name">Николай Николаевич Николаев</column>
+            <column name="email">student@test.test</column>
+            <column name="username">student</column>
+            <column name="password">$2a$10$gTZRllQZmqV43tCUMUo/V.EptmDOjwEGcagD/ZasdGj0pqLv95FUK</column>
+        </insert>
+        <insert tableName="user_roles">
+            <column name="user_id">2</column>
+            <column name="role_id">2</column>
+        </insert>
+        <insert tableName="user_roles">
+            <column name="user_id">3</column>
+            <column name="role_id">3</column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

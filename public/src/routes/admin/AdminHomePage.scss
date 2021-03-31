@@ -1,0 +1,12 @@
+@import "../../styles/variables";
+
+.container {
+    padding-top: 8px;
+
+    :global a.button {
+        display: block;
+        margin: 0 auto $contentPadding auto;
+        width: 450px;
+    }
+}
+

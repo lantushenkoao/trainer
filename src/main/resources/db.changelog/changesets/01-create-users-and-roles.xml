@@ -1,0 +1,67 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="1" author="alantushenko">
+        <createTable tableName="users">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints nullable="false" unique="true" primaryKey="true" />
+            </column>
+            <column name="name" type="varchar(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="varchar(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="email" type="varchar(512)"/>
+            <column name="password" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="roles">
+            <column name="id" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="user_roles">
+            <column name="user_id" type="int"/>
+            <column name="role_id" type="int"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="user_roles" baseColumnNames="user_id"
+                                 constraintName="user_roles_user_fk"
+                                 referencedTableName="users" referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="user_roles" baseColumnNames="role_id"
+                                 constraintName="user_roles_role_fk"
+                                 referencedTableName="roles" referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="2" author="alantushenko">
+        <insert tableName="roles">
+            <column name="id">1</column>
+            <column name="name">ADMIN</column>
+        </insert>
+        <insert tableName="roles">
+            <column name="id">2</column>
+            <column name="name">METHODIST</column>
+        </insert>
+    </changeSet>
+    <changeSet id="3" author="alantushenko">
+        <insert tableName="users">
+            <column name="id">1</column>
+            <column name="name">Иван Петрович Сидоров</column>
+            <column name="email">test@test.test</column>
+            <column name="username">TestUser</column>
+            <column name="password">$2a$10$gTZRllQZmqV43tCUMUo/V.EptmDOjwEGcagD/ZasdGj0pqLv95FUK</column>
+        </insert>
+        <insert tableName="user_roles">
+            <column name="user_id">1</column>
+            <column name="role_id">1</column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

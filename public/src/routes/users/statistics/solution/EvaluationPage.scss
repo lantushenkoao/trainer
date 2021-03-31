@@ -1,0 +1,91 @@
+@import '../../../../styles/variables';
+
+$leftBarPadding: 20px;
+$minHeight: 700px;
+
+.left-bar {
+    min-height: $minHeight;
+    display: flex;
+    flex-flow: column;
+    box-sizing: border-box;
+    background: $leftBarColor;
+    padding: $contentPadding;
+
+    h1 {
+        flex-grow: 1;
+    }
+
+    &__bottom-menu {
+        & > * {
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select {
+            margin-bottom: $contentPadding;
+        }
+    }
+}
+
+.content {
+    min-height: $minHeight;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+
+    &__schema {
+        display: flex;
+        flex-grow: 1;
+        background: white;
+    }
+
+    &__description {
+        background-color: #cccccc;
+        height: 200px;
+        padding: 20px 20px 20px 30px;
+
+        p {
+            margin-top: 0;
+        }
+    }
+}
+
+$popupMargin: 40px;
+.popup {
+    background: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    padding: $popupMargin;
+
+    &__header {
+        font-weight: bold;
+        margin-bottom: $popupMargin;
+    }
+
+    &__buttons-container {
+        margin-top: $popupMargin;
+        white-space: nowrap;
+
+        > * + * {
+            margin-left: 10px;
+        }
+    }
+
+    &__backdrop {
+        background-color: black;
+        opacity: 0.6;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9;
+    }
+}

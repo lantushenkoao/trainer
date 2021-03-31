@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+
+
+.link {
+
+    &__path {
+        stroke: $schemaLinkColor;
+        fill: none;
+
+        &--SOLID {
+
+        }
+
+        &--DASHED {
+            stroke-dasharray: 10, 8;
+            stroke-linecap: round;
+        }
+    }
+
+    &__path-area {
+        stroke: transparent;
+    }
+
+    &__middle {
+        fill: lightgreen;
+    }
+}

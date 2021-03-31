@@ -1,0 +1,51 @@
+@import '../../../styles/variables';
+
+.palette {
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: calc(#{$scrollbar-wrapper-height} - 2 * #{$buttonHeight});
+
+    &__shapes {
+        border: 1px solid #aaa;
+        flex-grow: 1;
+        overflow-y: auto;
+        padding-top: 10px;
+        margin-bottom: 10px;
+
+        &-item {
+            position: relative;
+            height: 120px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &-wrapper {
+                cursor: grab;
+            }
+        }
+
+        @extend %scrollBarStyling
+    }
+
+    &__links {
+
+        &-item {
+            height: 30px;
+            cursor: pointer;
+
+            &--selected {
+                background-color: darken($dark-white, 10%);
+            }
+
+            &-svg {
+                height: 100%;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+        }
+    }
+}

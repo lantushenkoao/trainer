@@ -1,0 +1,95 @@
+@import '../../styles/variables';
+
+.container {
+    display: flex;
+    flex-flow: column;
+
+    &__button-new {
+        margin-bottom: 40px;
+        width: fit-content;
+    }
+
+    &__table-wrapper {
+        width: fit-content;
+    }
+}
+
+.tasks-table {
+    border-collapse: collapse;
+    max-width: 900px;
+
+    th {
+        position: sticky;
+        top: 0;
+        background-color: $mainBackground;
+        text-align: left;
+        padding-bottom: 10px;
+        z-index: 2;
+    }
+
+    th:after{
+        content:'';
+        position:absolute;
+        left: 0;
+        bottom: 0;
+        width:100%;
+        border-bottom: 2px solid $tableBorderColor;
+    }
+
+    td {
+        padding-top: $tableRowGap;
+    }
+
+    &__cell {
+        &-index {
+            padding-left: 10px;
+            width: 30px;
+        }
+    
+        &-name {
+            width: max-content;
+            min-width: 450px;
+            padding-left: $tableColumnGap;
+            max-width: 0; // For text-overflow to work
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    
+        &-mark {
+            padding-left: $tableColumnGap;
+            text-align: center;
+
+            &-value--fail {
+                color: red;
+                font-weight: bold;
+            }
+        }
+    
+        &-buttons {
+            white-space: nowrap;
+            padding-left: $tableRowGap;
+
+            &__button-solve {
+                width: 100%;
+            }
+    
+            > * + * {
+                margin-left: $tableRowGap;
+            }
+        }
+
+        &--bottom-border {
+            position: relative;
+        }
+
+        &--bottom-border:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 1px;
+            width: 100%;
+            border-bottom: 1px solid $tableBorderColor;
+        }
+    }
+}

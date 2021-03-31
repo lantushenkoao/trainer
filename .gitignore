@@ -1,0 +1,11 @@
+glob:target/*
+glob:.mvn/*
+glob:.idea/*
+glob:public/node_modules/*
+glob:public/build
+glob:src/main/resources/application.properties
+/public/node_modules/
+/.idea/
+/trainer.iml
+/src/main/resources/application.properties
+/public/build/

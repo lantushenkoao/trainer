@@ -1,0 +1,55 @@
+@import '../../styles/variables';
+
+.container {
+    display: flex;
+    flex-flow: column;
+
+    &__new-topic-button {
+        margin-bottom: $contentPadding;
+        width: fit-content;
+    }
+
+    &__scrollbar-wrapper {
+        height: 100%;
+        width: fit-content;
+
+        &__topics {
+            > div + div {
+                margin-top: 25px;
+            }
+
+            &__row {
+                display: grid;
+                grid-template-columns: 70px 500px min-content;
+                column-gap: 50px;
+
+                &__index {
+                    font-weight: bold;
+                    text-align: right;
+                    font-size: 40px;
+                    line-height: 45px;
+                }
+
+                &__topic {
+                    word-break: break-word;
+                    vertical-align: top;
+
+                    &__header {
+                        font-weight: bold;
+                        margin-bottom: 5px;
+                    }
+                }
+
+                &__buttons {
+                    white-space: nowrap;
+
+                    > * + * {
+                        margin-left: 20px;
+                    }
+                }
+            }
+
+        }
+    }
+}
+

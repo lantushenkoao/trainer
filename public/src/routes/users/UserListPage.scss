@@ -1,0 +1,63 @@
+@import '../../styles/variables';
+
+.container {
+    display: flex;
+    flex-flow: column;
+
+    &__button-new {
+        margin-bottom: $contentPadding;
+        width: fit-content;
+    }
+
+    &__scrollbar-wrapper {
+        width: fit-content;
+        height: 100%;
+    }
+}
+
+.users-table {
+    border-collapse: collapse;
+
+    td {
+        padding-top: $tableRowGap;
+    }
+
+    &__cell {
+
+        &-name {
+            width: 300px;
+            max-width: 300px;
+            padding-left: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        &-role {
+            width: 150px;
+            padding-left: $tableColumnGap;
+            word-break: keep-all;
+        }
+
+        &-buttons {
+            white-space: nowrap;
+
+            > * {
+                margin-left: $tableRowGap;
+            }
+        }
+
+        &--bottom-border {
+            position: relative;
+        }
+
+        &--bottom-border:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 1px;
+            width: 100%;
+            border-bottom: 1px solid $tableBorderColor;
+        }
+    }
+}

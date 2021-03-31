@@ -1,0 +1,128 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="6.1" author="kgadyrka">
+        <addColumn tableName="topics">
+            <column name="index" type="int" afterColumn="id">
+                <constraints unique="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="6.2" author="kgadyrka">
+        <addColumn tableName="tasks">
+            <column name="index" type="int" afterColumn="id">
+                <constraints nullable="false"/>
+            </column>
+            <column name="complexity" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="6.3" author="kgadyrka">
+        <addColumn tableName="solutions">
+            <column name="mark" type="int"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="6.4" author="kgadyrka">
+        <update tableName="topics">
+            <column name="index" value="1"/>
+            <where>id=1</where>
+        </update>
+    </changeSet>
+
+    <changeSet id="6.5" author="kgadyrka">
+        <update tableName="tasks">
+            <column name="index" value="1"/>
+            <column name="complexity" value="5"/>
+            <where>id=1</where>
+        </update>
+    </changeSet>
+
+    <changeSet id="6.6" author="kgadyrka">
+        <update tableName="solutions">
+            <column name="mark" value="10"/>
+            <where>id=1</where>
+        </update>
+    </changeSet>
+
+    <changeSet id="6.7" author="kgadyrka">
+        <insert tableName="topics">
+            <column name="id">2</column>
+            <column name="index">2</column>
+            <column name="name">Тема 2</column>
+            <column name="description">Описание темы 2</column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="6.8" author="kgadyrka">
+        <insert tableName="tasks">
+            <column name="id">2</column>
+            <column name="index">2</column>
+            <column name="name">Задание 2</column>
+            <column name="description">Описание задания 2</column>
+            <column name="complexity">6</column>
+            <column name="topic_id">1</column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="6.9" author="kgadyrka">
+        <insert tableName="solutions">
+            <column name="id">3</column>
+            <column name="task_id">1</column>
+            <column name="mark" value="8"/>
+            <column name="data">
+                <![CDATA[
+                    <mxGraphModel dx="1426" dy="811" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff">
+                        <root>
+                            <mxCell id="0"/>
+                            <mxCell id="1" parent="0"/>
+                            <mxCell id="4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;jettySize=auto;orthogonalLoop=1;" edge="1" parent="1" source="2" target="3">
+                                <mxGeometry relative="1" as="geometry"/>
+                            </mxCell>
+                            <mxCell id="2" value="Начало" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                                <mxGeometry x="280" y="200" width="80" height="80" as="geometry"/>
+                            </mxCell>
+                            <mxCell id="3" value="Конец" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                                <mxGeometry x="440" y="200" width="80" height="80" as="geometry"/>
+                            </mxCell>
+                        </root>
+                    </mxGraphModel>
+                ]]>
+            </column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="6.10" author="kgadyrka">
+        <insert tableName="solutions">
+            <column name="id">4</column>
+            <column name="task_id">2</column>
+            <column name="mark" value="10"/>
+            <column name="data">
+                <![CDATA[
+                    <mxGraphModel dx="1426" dy="811" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff">
+                        <root>
+                            <mxCell id="0"/>
+                            <mxCell id="1" parent="0"/>
+                            <mxCell id="4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;jettySize=auto;orthogonalLoop=1;" edge="1" parent="1" source="2" target="3">
+                                <mxGeometry relative="1" as="geometry"/>
+                            </mxCell>
+                            <mxCell id="2" value="Начало" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                                <mxGeometry x="280" y="200" width="80" height="80" as="geometry"/>
+                            </mxCell>
+                            <mxCell id="3" value="Конец" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                                <mxGeometry x="440" y="200" width="80" height="80" as="geometry"/>
+                            </mxCell>
+                        </root>
+                    </mxGraphModel>
+                ]]>
+            </column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

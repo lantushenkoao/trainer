@@ -1,0 +1,130 @@
+@import '../../../styles/variables';
+
+$indexColumnWidth: 30px;
+$nameColumnWidth: 600px;
+$markColumnWidth: 75px;
+$buttonsColumnWidth: 170px;
+$rowHeight: 50px;
+$rowLeftPadding: 15px;
+
+@mixin name-ellipsis() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.statistics-wrapper {
+    width: fit-content;
+    height: 100%;
+    padding-right: $scrollbarWrapperPaddingRight;
+}
+
+.mark {
+    justify-content: flex-end;
+}
+
+
+.topic-statistics {
+    margin-bottom: 40px;
+    display: table;
+
+    &--student {
+        .topic-statistics {
+            &__header {
+                grid-template-columns: #{$indexColumnWidth + $nameColumnWidth + $tableColumnGap} $markColumnWidth;
+            }
+            &__task-row {
+                grid-template-columns: $indexColumnWidth $nameColumnWidth $markColumnWidth;
+            }
+        }
+
+        & > div > div:last-of-type {
+            padding-right: $rowLeftPadding;
+        }
+    }
+
+    &--admin {
+        .topic-statistics {
+            &__header {
+                grid-template-columns: #{$indexColumnWidth + $nameColumnWidth + $tableColumnGap} $markColumnWidth $buttonsColumnWidth;
+            }
+            &__task-row {
+                grid-template-columns: $indexColumnWidth $nameColumnWidth $markColumnWidth $buttonsColumnWidth;
+            }
+        }
+    }
+
+    &__header {
+        font-weight: bold;
+        position: sticky;
+        top: 0;
+        display: grid;
+        grid-template-columns: #{$indexColumnWidth + $nameColumnWidth + $tableColumnGap} $markColumnWidth;
+        grid-template-rows: $rowHeight;
+        column-gap: $tableColumnGap;
+        border-bottom: 2px solid $tableBorderColor;
+        background-color: $leftBarColor;
+
+        > * {
+            display: flex;
+            align-items: center;
+        }
+
+        &__name {
+            @include name-ellipsis();
+            padding-left: $rowLeftPadding;
+
+            &__index {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    &__task-row {
+        display: grid;
+        column-gap: $tableColumnGap;
+        border-bottom: 1px solid $tableBorderColor;
+        height: $rowHeight;
+
+        > div {
+            display: flex;
+            align-items: center;
+        }
+
+        &__index {
+            justify-content: flex-end;
+        }
+
+        &__name {
+            > span {
+                @include name-ellipsis();
+            }
+        }
+
+        :global .button {
+            $height: calc(#{$rowHeight} - 10px);
+            height: $height;
+            width: 100%;
+            line-height: $height;
+        }
+    }
+
+    &__summary {
+        font-weight: bold;
+        display: grid;
+        grid-template-columns: #{$indexColumnWidth + $nameColumnWidth + $tableColumnGap} $markColumnWidth;
+        column-gap: $tableColumnGap;
+        background-color: $mainBackground;
+        height: $rowHeight;
+
+        > div {
+            display: flex;
+            align-items: center;
+        }
+
+        &__title {
+            padding-left: $rowLeftPadding;
+        }
+    }
+
+}

@@ -1,0 +1,104 @@
+@import "../../styles/variables";
+
+.wrapper {
+    flex-grow: 1;
+    display: flex;
+
+    &--editable {
+        :global {
+            .geMenubarContainer {
+                display: none;
+            }
+            .geToolbarContainer {
+                top: 0 !important;
+            }
+            .geSidebarContainer:not(.geFormatContainer) {
+                top: 34px !important;
+                bottom: 0 !important;
+                width: $left-bar-width !important;
+                right: auto !important;
+            }
+            .geSidebarContainer.geFormatContainer {
+                top: 34px !important;
+                bottom: 0 !important;
+            }
+            .geFooterContainer {
+                display: none;
+            }
+            .geDiagramContainer {
+                left: $left-bar-width !important;
+                top: 34px !important;
+                bottom: 0 !important;
+            }
+            .geHsplit {
+                display: none;
+            }
+        }
+    }
+
+    &--read-only {
+        :global {
+            .geMenubarContainer {
+                display: none;
+            }
+            .geToolbarContainer {
+                top: 0 !important;
+            }
+            .geSidebarContainer:not(.geFormatContainer) {
+                display: none;
+            }
+            .geSidebarContainer.geFormatContainer {
+                display: none;
+            }
+            .geFooterContainer {
+                display: none;
+            }
+            .geDiagramContainer {
+                left: 0 !important;
+                right: 0 !important;
+                top: 34px !important;
+                bottom: 0 !important;
+            }
+            .geHsplit {
+                display: none;
+            }
+
+            //hide unnecessary toolbar buttons
+            .geToolbar > {
+                div:nth-of-type(4) {
+                    display: none;
+                }
+                :nth-of-type(5) {
+                    display: none;
+                }
+                :nth-of-type(6) {
+                    display: none;
+                }
+                :nth-of-type(7) {
+                    display: none;
+                }
+                :nth-of-type(8) {
+                    display: none;
+                }
+                :nth-of-type(9) {
+                    display: none;
+                }
+                :nth-of-type(10) {
+                    display: none;
+                }
+                :nth-of-type(11) {
+                    display: none;
+                }
+                :nth-of-type(12) {
+                    display: none;
+                }
+                :nth-of-type(13) {
+                    display: none;
+                }
+                :nth-of-type(14) {
+                    display: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,138 @@
+@import '../../../styles/variables';
+
+$leftBarPadding: 20px;
+
+.left-bar {
+    min-height: 700px;
+    display: flex;
+    flex-flow: column;
+    background-color: $mainBackground;
+    padding: $leftBarPadding;
+    box-sizing: border-box;
+
+    &__bottom-menu {
+        min-width: 250px;
+        box-sizing: border-box;
+        margin-top: $leftBarPadding;
+
+        > * + * {
+            margin-top: $leftBarPadding;
+        }
+
+        &__reference-link {
+            text-decoration: none;
+            color: $buttonColor;
+            display: flex;
+
+            > span {
+                flex: 1;
+            }
+
+            > svg {
+                margin-left: 15px;
+                align-self: flex-end;
+            }
+        }
+
+        :global .button {
+            display: block;
+        }
+    }
+}
+
+@mixin description-container() {
+    background-color: #cccccc;
+    padding: 20px 20px 20px 30px;
+
+    p {
+        margin-top: 0;
+    }
+}
+
+.content {
+    min-height: 700px;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+
+    &__schema {
+        display: flex;
+        flex-grow: 1;
+        height: calc(#{$scrollbar-wrapper-height} - 50px);
+    }
+
+    &__description {
+        height: 200px;
+        @include description-container;
+    }
+}
+
+$popupMargin: 40px;
+.popup {
+    background: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    padding: $popupMargin;
+
+    &__header {
+        font-weight: bold;
+        margin-bottom: $popupMargin;
+    }
+
+    &__buttons-container {
+        margin-top: $popupMargin;
+        white-space: nowrap;
+
+        > * + * {
+            margin-left: 10px;
+        }
+    }
+
+    &__backdrop {
+        background-color: black;
+        opacity: 0.6;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9;
+    }
+}
+
+.advanced-editor-layout {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__main {
+        flex-grow: 1;
+        display: flex;
+
+    }
+    &__bottom {
+
+    }
+}
+
+.bottom {
+    display: flex;
+
+    &__buttons {
+        width: $left-bar-width;
+        box-sizing: border-box;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    &__description {
+        flex-grow: 1;
+        @include description-container;
+    }
+}

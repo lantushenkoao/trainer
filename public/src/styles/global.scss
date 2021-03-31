@@ -1,0 +1,128 @@
+@import 'variables';
+
+@font-face {
+    font-family: roboto-bold;
+    src: url(../fonts/Roboto-Bold.ttf)
+}
+
+@font-face {
+    font-family: roboto-regular;
+    src: url(../fonts/Roboto-Regular.ttf)
+}
+
+body, input, textarea, select, button {
+    color: $textColor;
+    margin: 0;
+    font-family: roboto-regular;
+    font-size: inherit;
+}
+
+input:not([type]):disabled,
+textarea:disabled,
+select:disabled,
+input[type=text]:disabled,
+input[type=password]:disabled {
+    color: grey;
+    background-color: #E6E6E6;
+    cursor: not-allowed;
+}
+
+.button {
+    display: inline-block;
+    background-color: $buttonColor;
+    font-size: 16px;
+    color: #FFFFFF;
+    border: none;
+    text-decoration: none;
+    height: $buttonHeight;
+    line-height: $buttonHeight;
+    padding: 0 32px;
+    cursor: pointer;
+    transition: all .2s ease-in;
+    text-align: center;
+
+    > svg {
+        vertical-align: middle;
+    }
+}
+
+.button:hover {
+    background-color: darken($buttonColor, $darkenValueButtonHover);
+    transition: all .2s ease-in;
+}
+
+.button-delete {
+    background-color: $deleteButtonColor;
+}
+
+.button-delete:hover {
+    background-color: darken($deleteButtonColor, $darkenValueButtonHover);
+}
+
+.button-new {
+    background-color: $newButtonColor;
+}
+
+.button-new:hover {
+    background-color: darken($newButtonColor, $darkenValueButtonHover);
+}
+
+.button--disabled,
+button:disabled {
+    background-color: $light-gray;
+    cursor: not-allowed;
+}
+
+.button--disabled:hover,
+button:disabled:hover {
+    background-color: $light-gray;
+}
+
+.input {
+    box-sizing: border-box;
+    border: 1px solid $inputBorderColor;
+    height: 40px;
+    padding: 4px 10px;
+}
+
+textarea.input {
+    padding: 9px 10px;
+}
+
+.invalid-input {
+    .input {
+        border: solid 1px $deleteButtonColor;
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+    .validation-message {
+        font-size: 11px;
+        color: $deleteButtonColor;
+    }
+}
+
+.container-with-padding {
+    padding: $contentPadding;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.scrollbar-wrapper {
+    height: 100%;
+    overflow: auto;
+    min-width: 800px;
+    min-height: 150px;
+    box-sizing: border-box;
+    padding-right: $contentPadding;
+    word-break: break-word;
+
+    @extend %scrollBarStyling
+}
+
+div.mce-tinymce {
+    box-shadow: none;
+}
+
+.content {
+    height: 100%;
+}

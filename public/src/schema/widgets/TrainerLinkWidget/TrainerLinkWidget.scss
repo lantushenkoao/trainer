@@ -1,0 +1,11 @@
+.link {
+    &__point {
+        fill: lightgreen;
+        stroke-width: 10px;
+        stroke: transparent;
+
+        &:hover {
+            stroke: blue;
+        }
+    }
+}

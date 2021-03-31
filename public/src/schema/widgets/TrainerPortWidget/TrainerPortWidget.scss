@@ -1,0 +1,16 @@
+.port {
+    min-width: 10px;
+    min-height: 10px;
+    color: transparent;
+    visibility: hidden;
+
+    &__icon {
+        background-color: white;
+        color: #255aaa;
+    }
+
+    &--visible {
+        visibility: visible;
+        cursor: alias;
+    }
+}

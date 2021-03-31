@@ -1,0 +1,25 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="add-user-is-deleted-column" author="kgadyrka">
+        <addColumn tableName="users">
+            <column name="is_deleted" type="tinyint(1)" defaultValue="0"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="add-task-is-deleted-column" author="kgadyrka">
+        <addColumn tableName="tasks">
+            <column name="is_deleted" type="tinyint(1)" defaultValue="0"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="add-topic-is-deleted-column" author="kgadyrka">
+        <addColumn tableName="topics">
+            <column name="is_deleted" type="tinyint(1)" defaultValue="0"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>
