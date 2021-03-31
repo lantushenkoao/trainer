@@ -1,0 +1,19 @@
+package com.trainer.repository;
+
+import com.trainer.model.Topic;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.OrderBy;
+import java.util.List;
+
+@Repository
+public interface TopicRepository extends JpaRepository<Topic, Long> {
+
+    List<Topic> findAllByOrderByIndexAsc();
+
+    Topic findTopByOrderByIndexDesc();
+
+    Topic findByIndex(int index);
+
+}
