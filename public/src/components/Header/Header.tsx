@@ -97,21 +97,23 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                     </div>
 
                     <div styleName="header__grid__menu">
-                        <a href={manual} target="_blank">
-                            <FontAwesomeIcon icon="question" size="sm"/>
-                            Справка
-                        </a>
-                        {this.props.currentUser &&
+                    {this.props.currentUser &&
+                        <div styleName="header__grid__menu-container">
                             <a styleName="header__grid__menu__profile-menu-link" ref={this.profileMenuLinkRef}
                                onClick={() => this.toggleProfileMenu()}>
                                 <FontAwesomeIcon icon="user" size="sm"/>
-                                Мой аккаунт
+                                {this.props.currentUser.name}
                                 <span styleName={`header__grid__menu__profile-menu-link__chevron ${this.state.showProfileMenu ? ' header__grid__menu__profile-menu-link__chevron--down' : ''}`}>
                                     <FontAwesomeIcon icon="chevron-down" size="sm"/>
                                 </span>
                             </a>
-                        }
-                        {this.renderProfileMenu()}
+                            {this.renderProfileMenu()}
+                        </div>
+
+                    }
+                    <a href={manual} target="_blank">
+                        <FontAwesomeIcon icon="question" size="sm"/>
+                    </a>
                     </div>
                 </div>
             </div>

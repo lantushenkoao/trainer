@@ -28,7 +28,7 @@ $profileMenuAnimationDuration: 0.2s;
     $gridHeight: 50px;
     &__grid {
         display: grid;
-        grid-template-columns: calc(#{$left-bar-width - ($contentPadding * 2)}) auto min-content;
+        grid-template-columns: calc(#{$left-bar-width - ($contentPadding * 2)}) auto 350px;
         grid-template-rows: $gridHeight;
         grid-column-gap: $contentPadding;
         padding-left: $contentPadding;
@@ -59,11 +59,16 @@ $profileMenuAnimationDuration: 0.2s;
 
         &__menu {
             color: $headerTextColor;
+            display: inline-block;
             background-color: $headerBackgroundColor;
             text-align: right;
             position: relative;
             transition: all 0.2s ease-in;
             z-index: 3;
+
+            &-container {
+                display: inline-block;
+            }
 
             &__profile-menu-link {
                 &__chevron {

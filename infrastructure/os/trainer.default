@@ -1,2 +1,2 @@
-JAVA_OPTS="-Xmx1000m -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n -Djava.security.egd=file:/dev/urandom -Dlogging.level.root=WARN"
+JAVA_OPTS="-Xmx1000m -Djava.security.egd=file:/dev/urandom -Dlogging.level.root=WARN"
 LOG_PATH="/var/log/trainer.log"
