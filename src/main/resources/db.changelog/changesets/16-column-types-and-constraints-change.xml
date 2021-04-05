@@ -3,7 +3,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
-        logicalFilePath="db.changelog/changesets/16-column-types-and-constraints-change.xml">
+        logicalFilePath="BOOT-INF/classes/db.changelog/changesets/16-column-types-and-constraints-change.xml">
 
     <changeSet id="user-name-change" author="kgadyrka">
         <addNotNullConstraint tableName="users" columnName="name" columnDataType="varchar(100)"/>

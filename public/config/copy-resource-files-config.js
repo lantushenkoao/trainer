@@ -7,6 +7,14 @@ const getCopyResourcesPluginConfig = () =>
         {
             from: path.join(paths.appNodeModules, '@epicfaace/mxgraph/javascript/src'),
             to: path.join(paths.appBuild, 'mxgraph')
+        },
+        {
+            from: path.join(paths.appPublic,'manifest.json'),
+            to: path.join(paths.appBuild,'manifest.json')
+        },
+        {
+            from: path.join(paths.appPublic,'favicon.ico'),
+            to: path.join(paths.appBuild,'favicon.ico')
         }
     ]);
 

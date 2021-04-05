@@ -3,7 +3,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
-        logicalFilePath="db.changelog/changesets/14-drop-redundant-student-solution.xml">
+        logicalFilePath="BOOT-INF/classes/db.changelog/changesets/14-drop-redundant-student-solution.xml">
 
     <changeSet id="drop-topic-index-column" author="kgadyrka">
         <dropColumn tableName="topics" columnName="index"/>
