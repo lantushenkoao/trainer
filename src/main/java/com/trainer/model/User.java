@@ -49,7 +49,7 @@ public class User {
     @Email
     private String email;
 
-    @NotBlank
+    //@NotBlank password should be blank for SSO login
     @JsonIgnore
     private String password;
 
@@ -60,4 +60,8 @@ public class User {
     private Set<Role> roles;
 
     boolean isDeleted;
+
+    public boolean isTransient(){
+        return getId() == null;
+    }
 }

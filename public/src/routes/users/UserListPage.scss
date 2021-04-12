@@ -10,14 +10,14 @@
     }
 
     &__scrollbar-wrapper {
-        width: fit-content;
+        width: 80%;
         height: 100%;
     }
 }
 
 .users-table {
     border-collapse: collapse;
-
+    width: 100%;
     td {
         padding-top: $tableRowGap;
     }
@@ -25,8 +25,7 @@
     &__cell {
 
         &-name {
-            width: 300px;
-            max-width: 300px;
+            min-width: 200px;
             padding-left: 20px;
             overflow: hidden;
             text-overflow: ellipsis;

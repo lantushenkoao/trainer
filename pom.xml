@@ -96,6 +96,30 @@
             <artifactId>jgrapht-core</artifactId>
             <version>1.2.0</version>
         </dependency>
+        <dependency>
+            <groupId>net.paulgray</groupId>
+            <artifactId>lti</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/lti-1.0.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>net.paulgray</groupId>
+            <artifactId>lti-spring</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/lti-spring-1.0.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>net.oauth.core</groupId>
+            <artifactId>oauth</artifactId>
+            <version>20100527</version>
+        </dependency>
+        <dependency>
+            <groupId>net.oauth.core</groupId>
+            <artifactId>oauth-provider</artifactId>
+            <version>20100527</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -167,6 +191,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>

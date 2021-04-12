@@ -2,6 +2,7 @@ package com.trainer.service;
 
 import com.trainer.auth.AuthenticatedUserDetails;
 import com.trainer.exception.TrainerException;
+import com.trainer.model.Role;
 import com.trainer.model.User;
 import com.trainer.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +14,21 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private RoleService roleService;
 
     public User getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (null == authentication) {
+            return null;
+        }
         Object principal = authentication.getPrincipal();
         return principal instanceof AuthenticatedUserDetails
                 ? findByUsername(((AuthenticatedUserDetails) principal).getUsername())
@@ -31,6 +36,13 @@ public class UserService implements UserDetailsService {
     }
 
     public User saveOrUpdate(User user) {
+        if(user.isTransient()){
+            //creating new user.
+            //cannot use mysql constraints here because of soft delete approach
+            if(userRepository.usernameIsUsed(user.getUsername()).equals(1)){
+                throw new TrainerException("Login name is already in use");
+            }
+        }
         return userRepository.save(user);
     }
 
@@ -42,6 +54,22 @@ public class UserService implements UserDetailsService {
         User user = getById(id);
         user.setDeleted(true);
         saveOrUpdate(user);
+    }
+
+    public User findOrCreateStudent(String login, String email, String fullName) {
+        User user = userRepository.findByUsername(login);
+        if(user != null) {
+            return user;
+        }
+        user = new User();
+        user.setName(fullName);
+        user.setEmail(email);
+        user.setPassword(" ");
+        Role studentRole = roleService.getByName(com.trainer.security.Roles.STUDENT);
+        user.setRoles(new HashSet<>(Collections.singletonList(studentRole)));
+        user.setUsername(login);
+        userRepository.save(user);
+        return user;
     }
 
     public User findByUsername(String username) {

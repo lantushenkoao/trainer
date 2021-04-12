@@ -79,6 +79,18 @@ class TaskListPage extends React.Component<TaskListPageProps, TaskLisPageState> 
             })
     }
 
+    getTaskButtonMessage(task: TaskStatistics, canSolve: boolean){
+        if(task.hasSolution && task.mark && task.mark > TASK_COMPLETION_MIN_MARK){
+            return "Решить заново";
+        } else if (task.hasSolution && task.manualEvaluation){
+            return "Ожидает проверки преподавателем";
+        } else if (!task.hasSolution && canSolve){
+            return "Решить";
+        }  else {
+            return "Недоступно. Решите предыдущие задания";
+        }
+    }
+
     canSolveTask(task: TaskStatistics) {
         const topic = this.state.topic as TopicStatistics;
         const prevTask = task.index as number > 1
@@ -138,13 +150,15 @@ class TaskListPage extends React.Component<TaskListPageProps, TaskLisPageState> 
                                 styleName="tasks-table__cell-buttons__button-solve"
                                 onClick={() => goTo(routes.TASK(topic.id as number, task.id as number))}
                                 disabled={!this.canSolveTask(task)}>
-                            {task.hasSolution ? 'Решить задание' : 'Решить заново'}
+                            {this.getTaskButtonMessage(task, this.canSolveTask(task))}
                         </button>
                     }
                 </td>
             </tr>
         );
     }
+
+
 
     renderTasks() {
         const topic = this.state.topic as TopicStatistics;
@@ -158,7 +172,7 @@ class TaskListPage extends React.Component<TaskListPageProps, TaskLisPageState> 
                         {this.isStudent() &&
                             <th styleName="tasks-table__cell-mark">Оценка</th>
                         }
-                        <th/>
+                        <th styleName="tasks-table__cell-buttons"></th>
                     </tr>
                 </thead>
                 <tbody>

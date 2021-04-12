@@ -3,6 +3,7 @@ package com.trainer.controller;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 public class NotFoundHandler implements ErrorController {
 
     @RequestMapping("/error")
-    public RedirectView sendRedirect(HttpServletRequest req){
-        return new RedirectView("/index.html");
+    public String sendRedirect(HttpServletRequest req){
+        return "index.html";
     }
 
     @Override

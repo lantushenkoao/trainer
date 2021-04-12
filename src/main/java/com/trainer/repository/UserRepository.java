@@ -13,11 +13,11 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Query(value = "SELECT exists(select * from users where username = :username)",
+    @Query(value = "SELECT exists(select * from users where username = :username and is_deleted=0)",
             nativeQuery = true)
     BigInteger usernameIsUsed(@Param(value = "username") String username);
 
-    @Query(value = "SELECT exists(select * from users where email = :email)",
+    @Query(value = "SELECT exists(select * from users where email = :email and is_deleted=0)",
             nativeQuery = true)
     BigInteger emailIsUsed(@Param(value = "email") String email);
 

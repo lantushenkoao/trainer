@@ -16,7 +16,7 @@
 
 .tasks-table {
     border-collapse: collapse;
-    max-width: 900px;
+    max-width: 100%;
 
     th {
         position: sticky;
@@ -65,10 +65,11 @@
                 font-weight: bold;
             }
         }
-    
+
         &-buttons {
             white-space: nowrap;
             padding-left: $tableRowGap;
+            width: 200px;
 
             &__button-solve {
                 width: 100%;
