@@ -38,3 +38,14 @@ spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=false
 spring.mail.properties.mail.smtp.starttls.required=false
 spring.mail.properties.mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
+
+task.complete.minMark=2
+mark.maxValue=5
+task.maxComplexity=4
+spring.mvc.throw-exception-if-no-handler-found=true
+#spring.resources.add-mappings=false
+server.error.path=/error
+server.error.whitelabel.enabled=false
+
+lti.secretKey=[LTI key here]
+server.use-forward-headers=true

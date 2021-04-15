@@ -111,6 +111,9 @@ public class PermissionService {
     }
 
     private boolean hasRole(User user, String expectedRoleName) {
+        if(null == user){
+            return false;
+        }
         return user.getRoles()
                 .stream()
                 .anyMatch(role -> role.getName().equals(expectedRoleName));

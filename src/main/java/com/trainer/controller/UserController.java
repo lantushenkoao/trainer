@@ -131,7 +131,7 @@ public class UserController {
         boolean passwordChanged = !StringUtils.isEmpty(command.getPassword()) &&
                 !passwordEncoder.matches(command.getPassword(), originalUser.getPassword());
 
-        if (passwordChanged && selfUpdate &&
+        if (passwordChanged && selfUpdate && !originalUser.isSSOLogin() &&
                 !passwordEncoder.matches(command.getCurrentPassword(), originalUser.getPassword())) {
             errors.rejectValue("currentPassword", null, "Неверный текущий пароль");
         } else if (passwordChanged) {

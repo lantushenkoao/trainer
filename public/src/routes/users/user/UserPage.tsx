@@ -91,6 +91,10 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
         });
     }
 
+    isSSOUser() {
+        return this.props.currentUser && this.props.currentUser.ssologin;
+    }
+
     isMyProfile() {
         return this.props.currentUser != null && this.props.currentUser.id === this.props.userId;
     }
@@ -276,10 +280,10 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
                            ref={this.passwordConfirmInputRef}
                            onChange={(e) => this.changePasswordConfirm(e.target.value)}/>
 
-                    {this.isMyProfile() &&
+                    {this.isMyProfile() && ! this.isSSOUser() &&
                         <label htmlFor="currentPassword">Текущий пароль</label>
                     }
-                    {this.isMyProfile() &&
+                    {this.isMyProfile() && ! this.isSSOUser() &&
                         <input type="password"
                                id="currentPassword"
                                className="input"

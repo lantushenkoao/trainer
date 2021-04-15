@@ -1,13 +1,16 @@
 package com.trainer.service;
 
 import com.trainer.auth.AuthenticatedUserDetails;
+import com.trainer.controller.LTIController;
 import com.trainer.exception.TrainerException;
 import com.trainer.model.Role;
 import com.trainer.model.User;
 import com.trainer.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,9 +18,12 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.logging.Logger;
 
 @Service
 public class UserService implements UserDetailsService {
+
+    private Logger log = Logger.getLogger(UserService.class.getName());
 
     @Autowired
     private UserRepository userRepository;
@@ -37,6 +43,7 @@ public class UserService implements UserDetailsService {
 
     public User saveOrUpdate(User user) {
         if(user.isTransient()){
+            log.info("Creating new user");
             //creating new user.
             //cannot use mysql constraints here because of soft delete approach
             if(userRepository.usernameIsUsed(user.getUsername()).equals(1)){
@@ -86,6 +93,16 @@ public class UserService implements UserDetailsService {
 
     public List<User> listAll() {
         return userRepository.findAll();
+    }
+
+    public void authenticateSSOUser(User user){
+        UserDetails userDetails = loadUserByUsername(user.getUsername());
+
+        UsernamePasswordAuthenticationToken authReq
+                = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+
+        SecurityContext sc = SecurityContextHolder.getContext();
+        sc.setAuthentication(authReq);
     }
 
     @Override

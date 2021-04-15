@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.Where;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -60,6 +61,10 @@ public class User {
     private Set<Role> roles;
 
     boolean isDeleted;
+
+    public boolean isSSOLogin() {
+        return !StringUtils.hasText(password);
+    }
 
     public boolean isTransient(){
         return getId() == null;
